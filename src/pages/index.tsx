@@ -15,7 +15,7 @@ import styles from './home.module.css';
 export default function Home() {
   const products = [{
     id: 1,
-    name: 'Classic Sneakers',
+    name: 'Classic Sneakers Matej',
     price: 599.99,
     description: 'Timeless style meets comfort in these classic sneakers.',
     image: 'https://server-for-products.vercel.app/sneakers.jpg',
