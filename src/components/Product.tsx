@@ -1,12 +1,14 @@
 "use client";
 import ProductType from '../types/ProductInterface';
-import Image from 'next/image';
 import styles from './product.module.css';
+
+const bc = new BroadcastChannel('cart');
 
 export default function Product({ product }: { product: ProductType }) {
     
+    
     const addToCart = () => {
-        console.log("hello world");
+        bc.postMessage({action: "add", product: product});
     }
 
     return (
