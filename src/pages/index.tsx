@@ -3,13 +3,13 @@ import  ProductType  from '../types/ProductInterface';
 import Product from '../components/Product';
 import styles from './home.module.css';
 
-export const getStaticProps = (async (context) => {
+/* export const getStaticProps = (async (context) => {
   // Fetch data from external API
   const res = await fetch('https://server-for-products.vercel.app/api/products')
   const {products} = await res.json();
   // Pass data to the page via props
   return { props: { products } }
-}) satisfies GetStaticProps<{ products: ProductType[] }>
+}) satisfies GetStaticProps<{ products: ProductType[] }> */
 /* {products}: InferGetStaticPropsType<typeof getStaticProps> */
 
 export const getServerSideProps = (async () => {
