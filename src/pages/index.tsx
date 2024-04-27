@@ -3,19 +3,19 @@ import  ProductType  from '../types/ProductInterface';
 import Product from '../components/Product';
 import styles from './home.module.css';
 
-/* export const getStaticProps = (async (context) => {
+export const getStaticProps = (async (context) => {
   // Fetch data from external API
   const res = await fetch('https://server-for-products.vercel.app/api/products')
   const {products} = await res.json();
   // Pass data to the page via props
   return { props: { products } }
-}) satisfies GetStaticProps<{ products: ProductType[] }> */
+}) satisfies GetStaticProps<{ products: ProductType[] }>
 /* {products}: InferGetStaticPropsType<typeof getStaticProps> */
 
-export default function Home() {
-  const products = [{
+export default function Home({products}: InferGetStaticPropsType<typeof getStaticProps>) {
+  /* const products = [{
     id: 1,
-    name: 'Classic Sneakers Matej',
+    name: 'Classic Sneakers',
     price: 599.99,
     description: 'Timeless style meets comfort in these classic sneakers.',
     image: 'https://server-for-products.vercel.app/sneakers.jpg',
@@ -60,7 +60,7 @@ export default function Home() {
     description: 'Elevate your formal attire with these sophisticated leather oxfords.',
     image: 'https://server-for-products.vercel.app/oxfords.jpg',
     longDescription: 'Make a statement with these timeless oxfords, crafted from premium leather for unparalleled style and comfort.'
-  }];
+  }]; */
   return (
     <div className={styles.products}>
       {products.map((product: ProductType) => (
