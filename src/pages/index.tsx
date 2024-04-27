@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from 'next';
+import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from 'next';
 import  ProductType  from '../types/ProductInterface';
 import Product from '../components/Product';
 import styles from './home.module.css';
@@ -12,7 +12,16 @@ export const getStaticProps = (async (context) => {
 }) satisfies GetStaticProps<{ products: ProductType[] }>
 /* {products}: InferGetStaticPropsType<typeof getStaticProps> */
 
-export default function Home({products}: InferGetStaticPropsType<typeof getStaticProps>) {
+export const getServerSideProps = (async () => {
+  // Fetch data from external API
+  const res = await fetch('https://server-for-products.vercel.app/api/products')
+  const {products} = await res.json();
+  // Pass data to the page via props
+  return { props: { products } }
+}) satisfies GetServerSideProps<{ products: ProductType[] }>
+/* {products}: InferGetServerSideProps<typeof getServerSideProps> */
+
+export default function Home({products}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   /* const products = [{
     id: 1,
     name: 'Classic Sneakers',
