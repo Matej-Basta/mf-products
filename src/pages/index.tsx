@@ -17,19 +17,6 @@ export const getStaticProps = (async (context) => {
 /* {products}: InferGetStaticPropsType<typeof getStaticProps> */
 
 export default function Home({products}: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [productsClient, setProductsClient] = useState<ProductType[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-        const response = await fetch(BASE_URL);
-        
-        const data = await response.json();
-        const productsData = data.products as ProductType[];
-        setProductsClient(productsData);
-    }
-    fetchData();
-  }, []);
-
   if (products) {
     return (
       <div className={styles.products}>
@@ -39,6 +26,19 @@ export default function Home({products}: InferGetStaticPropsType<typeof getStati
       </div>
     );
   } else {
+      const [productsClient, setProductsClient] = useState<ProductType[]>([]);
+
+      useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(BASE_URL);
+            
+            const data = await response.json();
+            const productsData = data.products as ProductType[];
+            setProductsClient(productsData);
+        }
+        fetchData();
+      }, []);
+
     return (
       <div className={styles.products}>
         {productsClient.map((product: ProductType) => (
