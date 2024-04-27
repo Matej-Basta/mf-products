@@ -1,4 +1,4 @@
-const products = [{
+const productsData = [{
     id: 1,
     name: 'Classic Sneakers',
     price: 599.99,
@@ -47,4 +47,4 @@ const products = [{
     longDescription: 'Make a statement with these timeless oxfords, crafted from premium leather for unparalleled style and comfort.'
   }];
 
-export default products;
+export default productsData;
