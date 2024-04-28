@@ -13,7 +13,7 @@ export default function Product({ product }: { product: ProductType }) {
 
     return (
         <div className={styles["product-container"]}>
-            <img src={product.image} alt={product.name} className={styles["product-image"]}/>
+            <img src={product.image} alt={product.name} className={styles["product-image"]} style={{ height: "200px", width: "100%" }}/>
             <div className={styles["product-text"]}>
                 <div className={styles["product-header"]}>
                     <h2 className={styles["product-heading"]}>{product.name}</h2>
