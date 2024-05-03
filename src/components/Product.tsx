@@ -20,7 +20,7 @@ export default function Product({ product }: { product: ProductType }) {
                     <p className={styles["product-price"]}>{product.price} DKK</p>
                 </div>
                 <p>{product.description}</p>
-                <button onClick={addToCart} className={styles["product-button"]}>Add to Cart</button>
+                <button id={product.id.toString()} onClick={addToCart} className={styles["product-button"]}>Add to Cart</button>
             </div>
         </div>
     )
