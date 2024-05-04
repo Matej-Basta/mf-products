@@ -3,6 +3,7 @@
 import NextFederationPlugin from "@module-federation/nextjs-mf";
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isPreview = process.env.VERCEL_ENV === 'preview';
 
 const nextConfig = {
   reactStrictMode: true,
