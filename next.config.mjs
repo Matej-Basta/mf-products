@@ -8,7 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config, options) => {
-    config.output.publicPath = isProduction ? 'https://mf-products-ten.vercel.app/_next/' : 'http://localhost:3006/_next/';
+    config.output.publicPath = isPreview ? 'https://mf-products-staging.vercel.app/_next/' : (isProduction ? 'https://mf-products-ten.vercel.app/_next/' : 'http://localhost:3006/_next/');
     config.plugins.push(
       new NextFederationPlugin({
         name: "products",
